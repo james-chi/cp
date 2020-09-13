@@ -3,13 +3,13 @@
 		<title>간이 망연계 - copy &amp; paste</title>
 		<script>
 			function setAction(action_name){
-				document.forms["form1"]["action"].value = actio_name;
+				document.getElementById("hidden_action").value = action_name;
 			}
 
 			function validateForm() {
-				var input_value = document.forms["form1"]["input_value"].value;
+				var input_value = document.getElementById("input_value").value;
 				if (input_value == "") {
-					alert("Empty input. Put something there.");
+					alert("입력 값이 없습니다.");
 					return false;
 				}
 			}
@@ -159,15 +159,15 @@ if (is_null($input_value)) {
 		&nbsp;</p>
 
 		<form id="form1" name="form1" method="post">
-			<input type="hidden" name="action" value="">
+			<input id="hidden_action" type="hidden" name="action" value="">
     	<p>
 				1. 입력   (조회 번호 또는 등록할 텍스트):</br>
 				<input type=text id="input_value" style="width:100%; font-family: monospace,monospace;" name="input_value" size=100 maxlength=256 value="<?php echo $input_value; ?>">
 			</p>
 			<p>
 				2. 작업: 
-				<input type=submit name="search_button" value="조회" onClick="form1.action.value='search'; return;">
-				<input type=submit name="register_button" value="등록" onClick="form1.action.value='register'; return;">
+				<input type=submit name="search_button" value="조회" onClick="form1.action.value='search'; return validateForm();">
+				<input type=submit name="register_button" value="등록" onClick="form1.action.value='register'; return validateForm();">
 				<input type=submit id="reset_button" name="reset_button" value="초기화" onClick="form1.action.value='none'; return;">
 
 
