@@ -28,7 +28,7 @@ No logging
 Mixed - English and Korean
 
 # LOC
-- 215 lines
+- 215 lines, initial version
 
 # License
 MIT
