@@ -102,14 +102,22 @@ if (is_null($input_value)) {
 	switch ($_REQUEST['action']) {
 		case "register":
 			// $index
-			if(!is_file($index)) {
-				// make new index file
-				$file_no = 0;
-				file_put_contents($index, $file_no);
+
+			$fp = fopen("/tmp/cp.lock","r+");
+			if(flock($fp, LOCK_EX)) {
+
+				if(!is_file($index)) {
+					// make new index file
+					$file_no = 0;
+					file_put_contents($index, $file_no);
+				} else {
+					$file_no = file_get_contents($index);
+					$file_no = $file_no + 1;
+					file_put_contents($index, $file_no);
+				}
+				flock($fp, LOCK_UN);
+
 			} else {
-				$file_no = file_get_contents($index);
-				$file_no = $file_no + 1;
-				file_put_contents($index, $file_no);
 			}
 
 			$target_file = $file_no . ".txt";
