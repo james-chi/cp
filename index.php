@@ -66,7 +66,7 @@
 	<body>
 
 <?php
-$base="/Users/k2dx9a/cp";
+$base="/var/www/data";
 $today=date("Y/m/d");
 $dir="$base/$today";
 
@@ -161,7 +161,7 @@ if (is_null($input_value)) {
 		<p style="color:White; background-color:Tomato; text-align:center;"> 경고! 개인정보 절대 등록 금지. 보안성 없음. 작업로그 기록됨.</p>
 
 		<p style="small;"> 
-			* 최대 256바이트 간편 공유: 텍스트 등록 > 등록 번호 전달 > 등록 번호 조회> 텍스트 추출</br>
+			* 최대 2048 바이트 간편 공유: 텍스트 등록 > 등록 번호 전달 > 등록 번호 조회> 텍스트 추출</br>
 		</p>
 
 		&nbsp;</p>
@@ -170,7 +170,7 @@ if (is_null($input_value)) {
 			<input id="hidden_action" type="hidden" name="action" value="">
     	<p>
 				1. 입력   (조회 번호 또는 등록할 텍스트):</br>
-				<input type=text id="input_value" style="width:100%; font-family: monospace,monospace;" name="input_value" size=100 maxlength=256 value="<?php echo $input_value; ?>">
+				<input type=text id="input_value" style="width:100%; font-family: monospace,monospace;" name="input_value" size=100 maxlength=2048 value="<?php echo $input_value; ?>">
 			</p>
 			<p>
 				2. 작업: 
