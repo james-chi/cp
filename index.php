@@ -103,7 +103,7 @@ if (is_null($input_value)) {
 		case "register":
 			// $index
 
-			$fp = fopen("/tmp/cp.lock","r+");
+			$fp = fopen("/tmp/cp.lock","c+");
 			if(flock($fp, LOCK_EX)) {
 
 				if(!is_file($index)) {
